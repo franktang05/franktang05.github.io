@@ -4,75 +4,148 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Frank Tang</title>
-  <meta name="description" content="Frank Tang — software engineer at Instacart, based in NYC.">
+  <meta name="description" content="Frank Tang, tech lead at Instacart, based in New York.">
+  <meta property="og:title" content="Frank Tang">
+  <meta property="og:description" content="Tech lead at Instacart, based in New York.">
+  <meta name="theme-color" content="#0d0c0b">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23ff7a2f'/%3E%3Ctext x='50%25' y='54%25' text-anchor='middle' dominant-baseline='middle' font-family='ui-sans-serif,system-ui,sans-serif' font-size='32' font-weight='700' fill='%231a0d04'%3Eft%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
-  <div class="bg-gradient"></div>
-  <div class="bg-grid"></div>
+  <div class="backdrop" aria-hidden="true">
+    <div class="blob blob-a"></div>
+    <div class="blob blob-b"></div>
+    <div class="blob blob-c"></div>
+  </div>
+  <div class="spotlight" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
 
   <main>
     <header class="hero">
-      <p class="eyebrow"><span class="dot"></span> Available for interesting conversations</p>
-      <h1>Frank Tang</h1>
-      <p class="role">Tech Lead at <a href="https://www.instacart.com" target="_blank" rel="noopener">Instacart</a> · NYC</p>
-      <p class="bio">
-        Tech Lead at Instacart.
-      </p>
-
-      <nav class="links">
-        <a href="https://github.com/franktang05" target="_blank" rel="noopener" class="link-pill">
+      <div class="hero-text">
+        <p class="eyebrow"><span class="dot"></span>Tech lead · Instacart</p>
+        <h1 class="name" aria-label="Frank Tang"><span data-split>Frank Tang</span><span class="period">.</span></h1>
+        <p class="lede">Building the customer-facing backend at <a href="https://www.instacart.com" target="_blank" rel="noopener">Instacart</a>. Based in New York.</p>
+      </div>
+      <nav class="actions" aria-label="Links">
+        <a class="btn" href="https://github.com/franktang05" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.04 0 0 .97-.31 3.18 1.18a11.04 11.04 0 015.78 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.23 2.75.11 3.04.74.81 1.18 1.84 1.18 3.1 0 4.42-2.7 5.4-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.68.8.56C20.22 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg>
           GitHub
         </a>
-        <a href="https://www.linkedin.com/in/tianlei-tang/" target="_blank" rel="noopener" class="link-pill">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 110-4.13 2.06 2.06 0 010 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
-          LinkedIn
-        </a>
-        <a href="mailto:frank.tang@instacart.com" class="link-pill">
+        <a class="btn btn-primary" href="mailto:frank.tang@instacart.com">
           <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg>
-          Email
+          Email me
         </a>
       </nav>
     </header>
 
-    <section class="projects">
-      <h2>Selected Projects</h2>
-      <div class="project-grid">
-        <a class="project-card" href="https://github.com/franktang05/claude-code-config" target="_blank" rel="noopener">
-          <div class="project-head">
-            <h3>claude-code-config</h3>
-            <span class="lang"><span class="lang-dot" style="background:#89e051"></span>Shell</span>
-          </div>
-          <p>Personal Claude Code settings, plugins, and configuration — a peek into how I work with AI tooling day-to-day.</p>
-          <span class="arrow">→</span>
-        </a>
+    <section class="grid" aria-label="About Frank">
+      <article class="tile tile-about" style="--i:0">
+        <h2 class="label">About</h2>
+        <p class="about-big">I work on Instacart's <em>customer-facing backend</em>: search, the home feed, and how people find the retailers they shop from.</p>
+        <p class="about-small">Mostly Ruby and Go, with a lot of GraphQL in between. Outside of work I tinker on side projects, like a five-in-a-row game with an AI opponent.</p>
+        <dl class="meta">
+          <div><dt>Role</dt><dd>Tech Lead</dd></div>
+          <div><dt>Company</dt><dd>Instacart</dd></div>
+          <div><dt>Based in</dt><dd>New York</dd></div>
+        </dl>
+      </article>
 
-        <a class="project-card" href="https://github.com/franktang05/gomoku-game" target="_blank" rel="noopener">
-          <div class="project-head">
-            <h3>gomoku-game</h3>
-            <span class="lang"><span class="lang-dot" style="background:#f1e05a"></span>JavaScript</span>
-          </div>
-          <p>Web-based Five-in-a-Row with an AI opponent. Python/Flask backend, HTML5 Canvas frontend.</p>
-          <span class="arrow">→</span>
-        </a>
+      <article class="tile tile-clock" data-phase="day" style="--i:1">
+        <div class="sky" aria-hidden="true">
+          <div class="stars"></div>
+          <svg class="arc" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M10 62 A40 40 0 0 1 90 62"/></svg>
+          <div class="orb" data-orb></div>
+        </div>
+        <h2 class="label">New York</h2>
+        <div class="clock">
+          <time class="time"><span data-hm>New York</span><span class="sec" data-sec></span><span class="ampm" data-ampm></span></time>
+          <p class="phase" data-phase-label>Local time</p>
+        </div>
+      </article>
 
-        <a class="project-card" href="https://github.com/franktang05" target="_blank" rel="noopener">
-          <div class="project-head">
-            <h3>More on GitHub</h3>
-            <span class="lang"><span class="lang-dot" style="background:#701516"></span>Ruby</span>
+      <article class="tile tile-stack" style="--i:2">
+        <h2 class="label">Stack</h2>
+        <p class="stack-lead">Mostly Ruby &amp; Go</p>
+        <p class="sr-only">Ruby, Go, Rails, GraphQL, Postgres</p>
+        <div class="marquee" aria-hidden="true">
+          <div class="track">
+            <span class="chip"><i style="--c:#cc342d"></i>Ruby</span>
+            <span class="chip"><i style="--c:#00add8"></i>Go</span>
+            <span class="chip"><i style="--c:#d30001"></i>Rails</span>
+            <span class="chip"><i style="--c:#e10098"></i>GraphQL</span>
+            <span class="chip"><i style="--c:#4f8cc9"></i>Postgres</span>
+            <span class="chip"><i style="--c:#cc342d"></i>Ruby</span>
+            <span class="chip"><i style="--c:#00add8"></i>Go</span>
+            <span class="chip"><i style="--c:#d30001"></i>Rails</span>
+            <span class="chip"><i style="--c:#e10098"></i>GraphQL</span>
+            <span class="chip"><i style="--c:#4f8cc9"></i>Postgres</span>
           </div>
-          <p>Older side projects — Rails learning apps, experiments, and the occasional half-finished idea.</p>
-          <span class="arrow">→</span>
-        </a>
-      </div>
+        </div>
+        <div class="marquee reverse" aria-hidden="true">
+          <div class="track">
+            <span class="chip"><i style="--c:#e10098"></i>GraphQL</span>
+            <span class="chip"><i style="--c:#00add8"></i>Go</span>
+            <span class="chip"><i style="--c:#4f8cc9"></i>Postgres</span>
+            <span class="chip"><i style="--c:#cc342d"></i>Ruby</span>
+            <span class="chip"><i style="--c:#d30001"></i>Rails</span>
+            <span class="chip"><i style="--c:#e10098"></i>GraphQL</span>
+            <span class="chip"><i style="--c:#00add8"></i>Go</span>
+            <span class="chip"><i style="--c:#4f8cc9"></i>Postgres</span>
+            <span class="chip"><i style="--c:#cc342d"></i>Ruby</span>
+            <span class="chip"><i style="--c:#d30001"></i>Rails</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="tile tile-lately" style="--i:3">
+        <h2 class="label">Lately</h2>
+        <p class="lately-text">Spending a lot of time on how engineering teams work with <em>AI coding tools</em><span class="caret" aria-hidden="true"></span></p>
+      </article>
+
+      <article class="tile tile-projects" style="--i:4">
+        <h2 class="label">Side projects</h2>
+        <div class="projects">
+          <div class="project">
+            <div class="project-head">
+              <h3>gomoku-game</h3>
+              <span class="badge">
+                <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+                Private
+              </span>
+            </div>
+            <p>Five-in-a-row in the browser, with an AI opponent. Flask backend, Canvas frontend.</p>
+            <span class="lang"><i style="--c:#f1e05a"></i>JavaScript · Python</span>
+          </div>
+          <div class="project">
+            <div class="project-head">
+              <h3>claude-code-config</h3>
+              <span class="badge">
+                <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+                Private
+              </span>
+            </div>
+            <p>My Claude Code settings, plugins, and configuration. How I work with AI tooling day to day.</p>
+            <span class="lang"><i style="--c:#89e051"></i>Shell</span>
+          </div>
+        </div>
+      </article>
+
+      <button class="tile tile-contact" type="button" data-copy="frank.tang@instacart.com" style="--i:5">
+        <span class="label">Contact</span>
+        <span class="contact-big">Say hi <span class="contact-arrow" aria-hidden="true">↗</span></span>
+        <span class="contact-email">frank.tang@instacart.com</span>
+        <span class="contact-hint" data-copy-hint aria-live="polite">Click to copy</span>
+      </button>
     </section>
 
     <footer>
-      <p>Built with HTML, CSS, and too much coffee.</p>
+      <p>© <span data-year>2026</span> Frank Tang</p>
+      <p>Hand-built in New York. No framework.</p>
     </footer>
   </main>
 </body>
