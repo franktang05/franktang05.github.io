@@ -21,7 +21,7 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="preload" href="fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preconnect" href="https://api.open-meteo.com" crossorigin>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=3">
   <script>
     // Stamp the saved or system theme before first paint so there's no flash.
     (() => {
@@ -30,8 +30,8 @@
       document.documentElement.dataset.theme = saved || (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
     })();
   </script>
-  <script src="script.js" defer></script>
-  <script src="gomoku.js" defer></script>
+  <script src="script.js?v=3" defer></script>
+  <script src="gomoku.js?v=3" defer></script>
 </head>
 <body>
   <div class="backdrop" aria-hidden="true">
