@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Not found · Frank Tang</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#f3f2ee" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0d0c0b" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23ff7a2f'/%3E%3Ctext x='50%25' y='54%25' text-anchor='middle' dominant-baseline='middle' font-family='ui-sans-serif,system-ui,sans-serif' font-size='32' font-weight='700' fill='%231a0d04'%3Eft%3C/text%3E%3C/svg%3E">
+  <link rel="preload" href="/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.css">
+  <script>
+    (() => {
+      let saved = null;
+      try { saved = localStorage.getItem('theme'); } catch {}
+      document.documentElement.dataset.theme = saved || (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+    })();
+  </script>
+  <script src="/script.js" defer></script>
+</head>
+<body>
+  <div class="backdrop" aria-hidden="true">
+    <div class="blob blob-a"></div>
+    <div class="blob blob-b"></div>
+    <div class="blob blob-c"></div>
+  </div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <main class="lost">
+    <p class="eyebrow">404</p>
+    <h1 class="name"><span class="sr-only">Not here</span><span data-split aria-hidden="true">Not here</span><span class="period" aria-hidden="true">.</span></h1>
+    <p class="lede">This page doesn't exist, or it moved. The home page has everything.</p>
+    <a class="btn btn-primary" href="/">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back home
+    </a>
+  </main>
+</body>
+</html>

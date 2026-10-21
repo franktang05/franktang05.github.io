@@ -5,15 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Frank Tang</title>
   <meta name="description" content="Frank Tang, tech lead at Instacart, based in New York.">
+  <link rel="canonical" href="https://franktang05.github.io/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://franktang05.github.io/">
   <meta property="og:title" content="Frank Tang">
   <meta property="og:description" content="Tech lead at Instacart, based in New York.">
-  <meta name="theme-color" content="#0d0c0b">
+  <meta property="og:image" content="https://franktang05.github.io/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Frank Tang. Tech lead at Instacart, based in New York.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#f3f2ee" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0d0c0b" media="(prefers-color-scheme: dark)">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23ff7a2f'/%3E%3Ctext x='50%25' y='54%25' text-anchor='middle' dominant-baseline='middle' font-family='ui-sans-serif,system-ui,sans-serif' font-size='32' font-weight='700' fill='%231a0d04'%3Eft%3C/text%3E%3C/svg%3E">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preload" href="fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preconnect" href="https://api.open-meteo.com" crossorigin>
   <link rel="stylesheet" href="styles.css">
+  <script>
+    // Stamp the saved or system theme before first paint so there's no flash.
+    (() => {
+      let saved = null;
+      try { saved = localStorage.getItem('theme'); } catch {}
+      document.documentElement.dataset.theme = saved || (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+    })();
+  </script>
   <script src="script.js" defer></script>
+  <script src="gomoku.js" defer></script>
 </head>
 <body>
   <div class="backdrop" aria-hidden="true">
@@ -27,9 +45,9 @@
   <main>
     <header class="hero">
       <div class="hero-text">
-        <p class="eyebrow"><span class="dot"></span>Tech lead · Instacart</p>
-        <h1 class="name" aria-label="Frank Tang"><span data-split>Frank Tang</span><span class="period">.</span></h1>
-        <p class="lede">Building the customer-facing backend at <a href="https://www.instacart.com" target="_blank" rel="noopener">Instacart</a>. Based in New York.</p>
+        <p class="eyebrow">Tech lead · <a href="https://www.instacart.com" target="_blank" rel="noopener">Instacart</a></p>
+        <h1 class="name"><span class="sr-only">Frank Tang</span><span data-split aria-hidden="true">Frank Tang</span><span class="period" aria-hidden="true">.</span></h1>
+        <p class="lede">Backend engineer in New York.</p>
       </div>
       <nav class="actions" aria-label="Links">
         <a class="btn" href="https://github.com/franktang05" target="_blank" rel="noopener">
@@ -40,6 +58,10 @@
           <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg>
           Email me
         </a>
+        <button class="btn btn-icon theme-toggle" type="button" data-theme-toggle aria-label="Switch theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z"/></svg>
+        </button>
       </nav>
     </header>
 
@@ -47,30 +69,32 @@
       <article class="tile tile-about" style="--i:0">
         <h2 class="label">About</h2>
         <p class="about-big">I work on Instacart's <em>customer-facing backend</em>: search, the home feed, and how people find the retailers they shop from.</p>
-        <p class="about-small">Mostly Ruby and Go, with a lot of GraphQL in between. Outside of work I tinker on side projects, like a five-in-a-row game with an AI opponent.</p>
-        <dl class="meta">
-          <div><dt>Role</dt><dd>Tech Lead</dd></div>
-          <div><dt>Company</dt><dd>Instacart</dd></div>
-          <div><dt>Based in</dt><dd>New York</dd></div>
-        </dl>
+        <p class="about-small">Outside work I tinker on side projects, like the five-in-a-row game on this page.</p>
       </article>
 
-      <article class="tile tile-clock" data-phase="day" style="--i:1">
+      <article class="tile tile-clock" data-phase="day" data-weather="clear" style="--i:1">
         <div class="sky" aria-hidden="true">
           <div class="stars"></div>
           <svg class="arc" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M10 62 A40 40 0 0 1 90 62"/></svg>
           <div class="orb" data-orb></div>
+          <div class="haze"></div>
+          <div class="clouds"><i></i><i></i><i></i></div>
+          <div class="precip"></div>
+          <div class="flash"></div>
         </div>
-        <h2 class="label">New York</h2>
+        <div class="clock-head">
+          <h2 class="label">New York</h2>
+          <p class="weather" data-weather-readout hidden><span class="temp" data-temp></span><span data-conditions></span></p>
+        </div>
         <div class="clock">
-          <time class="time"><span data-hm>New York</span><span class="sec" data-sec></span><span class="ampm" data-ampm></span></time>
-          <p class="phase" data-phase-label>Local time</p>
+          <time class="time" data-time><span data-hm>--:--</span><span class="sec" data-sec></span><span class="ampm" data-ampm></span></time>
+          <p class="phase" data-status-label>Local time</p>
         </div>
       </article>
 
       <article class="tile tile-stack" style="--i:2">
         <h2 class="label">Stack</h2>
-        <p class="stack-lead">Mostly Ruby &amp; Go</p>
+        <p class="stack-lead">Daily drivers</p>
         <p class="sr-only">Ruby, Go, Rails, GraphQL, Postgres</p>
         <div class="marquee" aria-hidden="true">
           <div class="track">
@@ -107,45 +131,65 @@
         <p class="lately-text">Spending a lot of time on how engineering teams work with <em>AI coding tools</em><span class="caret" aria-hidden="true"></span></p>
       </article>
 
-      <article class="tile tile-projects" style="--i:4">
-        <h2 class="label">Side projects</h2>
-        <div class="projects">
-          <div class="project">
-            <div class="project-head">
-              <h3>gomoku-game</h3>
-              <span class="badge">
-                <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
-                Private
-              </span>
-            </div>
-            <p>Five-in-a-row in the browser, with an AI opponent. Flask backend, Canvas frontend.</p>
-            <span class="lang"><i style="--c:#f1e05a"></i>JavaScript · Python</span>
+      <article class="tile tile-project" style="--i:4">
+        <h2 class="label">Side project</h2>
+        <div class="project-body">
+          <div class="project-head">
+            <h3>claude-code-config</h3>
+            <span class="badge">
+              <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+              Private
+            </span>
           </div>
-          <div class="project">
-            <div class="project-head">
-              <h3>claude-code-config</h3>
-              <span class="badge">
-                <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
-                Private
-              </span>
-            </div>
-            <p>My Claude Code settings, plugins, and configuration. How I work with AI tooling day to day.</p>
-            <span class="lang"><i style="--c:#89e051"></i>Shell</span>
-          </div>
+          <p>My Claude Code settings, plugins, and configuration. How I work with AI tooling day to day.</p>
+          <span class="lang"><i style="--c:#89e051"></i>Shell</span>
         </div>
       </article>
 
-      <button class="tile tile-contact" type="button" data-copy="frank.tang@instacart.com" style="--i:5">
-        <span class="label">Contact</span>
-        <span class="contact-big">Say hi <span class="contact-arrow" aria-hidden="true">↗</span></span>
-        <span class="contact-email">frank.tang@instacart.com</span>
-        <span class="contact-hint" data-copy-hint aria-live="polite">Click to copy</span>
-      </button>
+      <article class="tile tile-gomoku" id="play" style="--i:5">
+        <div class="gomoku">
+          <div class="gomoku-side">
+            <h2 class="label">Side project</h2>
+            <h3 class="gomoku-title">Five in a row</h3>
+            <p class="gomoku-copy">A pocket version of my gomoku game. You're orange and you go first.</p>
+            <div class="gomoku-play">
+              <p class="gomoku-status" data-status aria-live="polite">Your move. Five in a row wins.</p>
+              <div class="gomoku-actions">
+                <button class="btn btn-sm" type="button" data-reset>New game</button>
+                <span class="gomoku-score" data-score>You 0 · AI 0</span>
+              </div>
+            </div>
+            <p class="repo">
+              <span>gomoku-game</span>
+              <span class="badge">
+                <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+                Private
+              </span>
+            </p>
+          </div>
+          <div class="board" data-board role="group" aria-label="Gomoku board, 11 by 11" aria-describedby="board-help"></div>
+          <p class="sr-only" id="board-help">Arrow keys move between points. Enter places a stone.</p>
+        </div>
+      </article>
+
+      <section class="tile tile-contact" style="--i:6" aria-labelledby="contact-title">
+        <h2 class="label">Contact</h2>
+        <div class="contact-body">
+          <p class="contact-big" id="contact-title">Say hi</p>
+          <div class="contact-action">
+            <button class="contact-copy" type="button" data-copy="frank.tang@instacart.com">
+              <span>frank.tang@instacart.com</span>
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            </button>
+            <p class="contact-hint" data-copy-hint aria-live="polite">Click to copy</p>
+          </div>
+        </div>
+      </section>
     </section>
 
     <footer>
       <p>© <span data-year>2026</span> Frank Tang</p>
-      <p>Hand-built in New York. No framework.</p>
+      <p>Weather from <a href="https://open-meteo.com" target="_blank" rel="noopener">Open-Meteo</a> · Hand-built, no framework.</p>
     </footer>
   </main>
 </body>
